@@ -15,12 +15,12 @@ function Register() {
     },[])
     const user={
       "companyName": "eshwar",
-      "clientID": "74aafa2f-0a71-432f-9f1f-864a148d4c4c",
-      "clientSecret": "HsyzSHPiWqhUGuaP",
-      "ownerName": "shesha",
-      "ownerEmail": "sheshadri.n2021ecec@sece.ac.in",
-      "rollNo": "21ec152"
-  }
+      "clientID": "3e71fad0-fce0-49ab-869d-1b1f08f86613",
+      "clientSecret": "FEPBKWiPylPaiFcG",
+      "ownerName": "shiva",
+      "ownerEmail": "shivadharshan.s2021ecec@sece.ac.in",
+      "rollNo": "21EC145"
+    }
   return (
     <>
     

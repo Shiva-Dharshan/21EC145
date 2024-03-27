@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 function Products() {
     const [Details,setDetails]=useState([])
@@ -16,8 +16,13 @@ function Products() {
             }
             const response=await fetch(url,requestOptions)
             const data=await response.json()
-            setDetails(data)
-            console.log(data)
+            console.log(data);
+            if(data?.message)
+            {alert(data.message)}
+            else{
+                setDetails(data)
+            }           
+
         }
         const handlesumbit=()=>{
             fetchData()
@@ -36,10 +41,10 @@ function Products() {
         
         <h1></h1>
         <div className='mt-5 bg-slate-950 p-5 flex flex-col gap-10'>
-            {Details.map((res)=>{
+            {Details?.map((res,id)=>{
                 return(
                     <>
-                    <div className='bg-white p-3 rounded-md w-[80%] mx-auto transition-all duration-200 hover:scale-95 hover:cursor-pointer' >
+                    <div key={id} className='bg-white p-3 rounded-md w-[80%] mx-auto transition-all duration-200 hover:scale-95 hover:cursor-pointer' >
                         <h1 className='text-2xl text-black'>{res.productName}</h1>
                         <h1 className='text-green-500'>${res.price}</h1>
                     </div>
