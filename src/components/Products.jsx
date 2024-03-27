@@ -4,7 +4,7 @@ function Products() {
     const [Details,setDetails]=useState([])
     const [company,setcompany]=useState('')
     const [product,setproduct]=useState('')
-    useEffect(()=>{
+
         const fetchData=async ()=>{
             const url=`http://20.244.56.144/test/companies/${company}/categories/${product}/products?top=10&minPrice=1&maxPrice=10000`
             const requestOptions = {
@@ -19,17 +19,18 @@ function Products() {
             setDetails(data)
             console.log(data)
         }
-
-        fetchData()
-    },[])
+        const handlesumbit=()=>{
+            fetchData()
+        }
   return (
     <>
     <div className='w-[100%]'>
         <div className='flex justify-center'>
         <input type='text' placeholder='enter the product' className='m-4 p-3' value={product}
-        onClick={e=>setproduct(e.target.value)}></input>
+        onChange={e=>setproduct(e.target.value)}></input>
         <input type='text' placeholder='enter the companyname' className='m-4 p-3' value={company}
-        onClick={e=>setcompany(e.target.value)}></input>
+        onChange={e=>setcompany(e.target.value)}></input>
+        <button onClick={handlesumbit} className='mx-10 bg-black px-10'>search</button>
         <h1 className='text-center text-4xl mt-5'>Products</h1> 
         </div>
         
