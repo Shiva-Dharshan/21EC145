@@ -30,13 +30,13 @@ function Products() {
   return (
     <>
     <div className='w-[100%]'>
-        <div className='flex justify-center'>
-        <input type='text' placeholder='enter the product' className='m-4 p-3' value={product}
+        <div className='mx-auto gap-3 lg:flex-row flex flex-col justify-center w-[60%]  lg:w-[90%] mt-5 '>
+        <input type='text' placeholder='enter the product' className='lg:m-4 lg:p-3 ' value={product}
         onChange={e=>setproduct(e.target.value)}></input>
-        <input type='text' placeholder='enter the companyname' className='m-4 p-3' value={company}
+        <input type='text' placeholder='enter the companyname' className='lg:m-4 lg:p-3' value={company}
         onChange={e=>setcompany(e.target.value)}></input>
         <button onClick={handlesumbit} className='mx-10 bg-black px-10'>search</button>
-        <h1 className='text-center text-4xl mt-5'>Products</h1> 
+        <h1 className='text-center lg:text-4xl lg:mt-5 '>Products</h1> 
         </div>
         
         <h1></h1>
@@ -45,8 +45,10 @@ function Products() {
                 return(
                     <>
                     <div key={id} className='bg-white p-3 rounded-md w-[80%] mx-auto transition-all duration-200 hover:scale-95 hover:cursor-pointer' >
-                        <h1 className='text-2xl text-black'>{res.productName}</h1>
-                        <h1 className='text-green-500'>${res.price}</h1>
+                        <h1 className='lg:text-2xl text-md text-black'>Productname: {res.productName}</h1>
+                        <h1 className='text-green-500 text-md'>Price:${res.price}</h1>
+                        <h1 className='text-black text-md'>Rating:{res.rating}</h1>
+                        <h1 className='text-black text-md font-semibold'>Availability:{res.availability}</h1>
                     </div>
                     </>
                 )
